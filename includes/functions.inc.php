@@ -69,9 +69,12 @@ function uidExists($conn, $username, $email)
     mysqli_stmt_close($stmt);
 }
 
-function createUser($conn, $name, $email, $username, $pwd)
+function createUser($conn, $name, $email, $username, $pwd, $type)
 {
-    $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?);";
+    $sql2 = "INSERT INTO profileimg (userid, statusBool) VALUES ('$username', 1)";
+    mysqli_query($conn, $sql2);
+
+    $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd, usersType) VALUES (?, ?, ?, ?, ?);";
     //prepared statement to prevent users from writing code in text fields
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -81,10 +84,10 @@ function createUser($conn, $name, $email, $username, $pwd)
 
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd);
+    mysqli_stmt_bind_param($stmt, "sssss", $name, $email, $username, $hashedPwd, $type);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../signup.php?error=none");
+    header("location: ../login.php?error=none");
     exit();
 }
 
@@ -121,4 +124,42 @@ function loginUser($conn, $username, $pwd)
         header("location: ../index.php");
         exit();
     }
+}
+
+function createStore($conn, $storeName, $storeCVR, $StoreAddress, $userId)
+{
+    $sql = "INSERT INTO seller (storeName, storeCVR, storeAddress, userId) VALUES (?, ?, ?, ?)";
+    mysqli_query($conn, $sql);
+
+    //prepared statement to prevent users from writing code in text fields
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../profile.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ssss", $storeName, $storeCVR, $StoreAddress, $userId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../profile.php?error=none");
+    exit();
+}
+
+function createFood($conn, $foodName, $foodPrice, $foodAmount, $userId)
+{
+    $sql = "INSERT INTO food (foodName, foodPrice, foodAmount, sellerId) VALUES (?, ?, ?, ?)";
+    mysqli_query($conn, $sql);
+
+    //prepared statement to prevent users from writing code in text fields
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../profile.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ssss", $foodName, $foodPrice, $foodAmount, $userId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../profile.php?error=none");
+    exit();
 }

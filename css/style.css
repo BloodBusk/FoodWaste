@@ -1,0 +1,368 @@
+@import "globalStyles.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--lightBlack);
+  font-family: var(--fontContrail);
+}
+
+main {
+  width: 90%;
+  margin: auto;
+}
+
+/*#region*****Header*******/
+
+header {
+  width: 90%;
+  margin: auto;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a{
+  text-decoration: none;
+  color: rgb(150, 150, 150);
+}
+
+
+.profileImg img{
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--lightGreen);
+  border-radius: 50%;
+}
+
+.profileIcons a i {
+  color: var(--lightGreen);
+  font-size: 2em;
+  padding: 10px;
+}
+
+.headerBot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerBot i {
+  color: var(--lightGreen);
+  font-size: 2em;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.hamburgerMenu {
+  background: var(--lightBlack);
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5vh;
+}
+
+.hamburgerMenu a {
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  text-decoration: none;
+  color: var(--lightGreen);
+  border: 0.5px solid var(--lightBlack);
+}
+
+.hamburgerMenu a:hover {
+  border: 0.5px solid var(--lightGreen);
+}
+
+.displayMenu {
+  display: none;
+}
+
+.fa-times {
+  margin-right: auto;
+  width: 90%;
+  text-align: right;
+}
+
+#shoppingCartNum{
+  font-size: 10px;
+  color: red;
+}
+
+/*#endregion*/
+
+/*#region*****Index*******/
+
+.homeTop{
+  text-align: center;
+  margin: 2vh 0 4vh 0;
+  background: var(--darkDarkGreen);
+  color: white;
+  padding: 2vh 0;
+  font-size: 18px;
+}
+
+.searchForm{
+  display: flex;
+  width: 100%;
+  margin-bottom: 2vh;
+  position: relative;
+}
+.searchForm i{
+  position: absolute;
+  top: 50%;
+  left: 2.5%;
+  transform: translateY(-50%);
+  color: var(--darkGreen);
+  font-size: 2em;
+}
+
+.searchForm input{
+  padding: 10px;
+}
+
+.searchFormBtn{
+  width: 15%;
+  border: 0px solid transparent;
+  box-shadow: 0 0 0 transparent;
+}
+.searchFormInput{
+  width: 85%;
+  border: 0px solid transparent;
+}
+
+.foodCardContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.foodCard {
+  background: var(--darkGreen);
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 1%;
+  padding: 5px;
+}
+
+.foodCard div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.addToCart{
+  width: 90%;
+  margin: auto;
+  background: var(--lightGreen);
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 0.5px solid var(--lightGreen);
+  box-shadow: 1px 1px 6px black;
+}
+
+.addToCart:hover{
+  border: 0.5px solid black;
+}
+
+/*#endregion*/
+
+/*#region*****Login*******/
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginContainer form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-top: 5vh;
+}
+
+.loginContainer form input {
+  padding: 10px;
+  margin-top: 2vh;
+}
+
+.loginContainer form button {
+  padding: 10px;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  background: var(--lightGreen);
+  cursor: pointer;
+}
+
+.signupContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2vh 0;
+}
+
+.loginDivider {
+  margin: 2vh 0;
+  display: inline-block;
+  border: 0.5px solid var(--lightGreen);
+  width: 100%;
+}
+
+.signupContainer a {
+  width: 80%;
+  background: var(--darkGreen);
+  text-align: center;
+  padding: 10px;
+  box-shadow: 1px 1px 6px black;
+  text-decoration: none;
+  color: var(--lightBlack);
+}
+
+.signupContainer a:hover {
+  background: var(--lightGreen);
+}
+
+/*#endregion*/
+
+/*#region*****Signup*******/
+
+.signupForm h2{
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+.signupForm form{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+}
+
+.signupForm form label{
+  color: var(--lightGreen);
+}
+
+.signupForm form input{
+  padding: 10px;
+  margin-bottom: 2vh;
+}
+
+.signupForm form button{
+  padding: 10px;
+  background: var(--lightGreen);
+}
+
+.signupForm form select {
+  padding: 10px;
+  margin-bottom: 2vh;
+}
+
+
+/*#endregion*/
+
+/*#region*****Profile*******/
+
+.profileForm{
+  display: flex;
+  flex-direction: column;
+  margin: 2vh auto;
+}
+
+.profileForm input{
+  margin-bottom: 2vh;
+  padding: 10px;
+}
+
+.profileForm label{
+  color: var(--lightGreen);
+}
+
+.profileForm button{
+  padding: 10px;
+  background: var(--lightGreen);
+}
+
+.deleteUser{
+  margin-top: 5vh;
+  text-align: right;
+}
+
+.deleteUser form input{
+  background: transparent;
+  box-shadow: 0 0 0 transparent;
+  border: 0px solid transparent;
+  text-shadow: 0 0 0 transparent;
+  cursor: pointer;
+}
+
+/*#endregion*/
+
+/*#region*****Profile*******/
+
+.foodCardCartContainer{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.foodCardCart{
+  background: var(--darkGreen);
+  width: 31%;
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  padding: 5px;
+}
+
+.removeFromCart {
+  text-align: right;
+}
+
+.removeFromCart button{
+  width: 50%;
+  background: var(--lightGreen);
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 0.5px solid var(--lightGreen);
+  box-shadow: 1px 1px 6px black;
+}
+
+
+
+/*#endregion*/
+
+/*#region*****Footer*******/
+
+footer {
+  margin-top: 5vh;
+  height: 10vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--darkGreen);
+}
+
+footer a {
+  margin: 0 5%;
+  text-decoration: none;
+  color: var(--lightBlack);
+}
+
+/*#endregion*/

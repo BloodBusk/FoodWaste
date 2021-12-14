@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "foodName": "Strawberry",
+    "foodPrice": 42,
+    "foodAmount": 30,
+    "sellerId": "fgh"
+  },
+  {
+    "id": 2,
+    "foodName": "Strawberry",
+    "foodPrice": 42,
+    "foodAmount": 30,
+    "sellerId": "zxc"
+  },
+  {
+    "id": 3,
+    "foodName": "Grapes",
+    "foodPrice": 22,
+    "foodAmount": 30,
+    "sellerId": "zxc"
+  },
+  {
+    "id": 4,
+    "foodName": "Olives",
+    "foodPrice": 52,
+    "foodAmount": 30,
+    "sellerId": "zxc"
+  },
+  {
+    "id": 5,
+    "foodName": "Chips",
+    "foodPrice": 20,
+    "foodAmount": 2,
+    "sellerId": "fgh"
+  },
+  {
+    "id": 6,
+    "foodName": "Baked Beans",
+    "foodPrice": 5,
+    "foodAmount": 5,
+    "sellerId": "fgh"
+  },
+  {
+    "id": 7,
+    "foodName": "Cheese",
+    "foodPrice": 20,
+    "foodAmount": 1,
+    "sellerId": "fgh"
+  }
+]

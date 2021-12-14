@@ -7,6 +7,7 @@ if(isset($_POST["submit"])){
     $username = $_POST["uid"];
     $pwd = $_POST["pwd"];
     $pwdRepeat = $_POST["pwdrepeat"];
+    $type = $_POST["usertype"];
 
     require_once "dbh.inc.php";
     require_once "functions.inc.php";
@@ -32,7 +33,8 @@ if(isset($_POST["submit"])){
         exit();
     }
     
-    createUser($conn, $name, $email, $username, $pwd);
+    createUser($conn, $name, $email, $username, $pwd, $type);
+
     
 
 }else{

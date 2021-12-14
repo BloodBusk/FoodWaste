@@ -2,13 +2,23 @@
 include_once 'header.php';
 ?>
 
-<section>
+<section class="signupForm">
     <h2>Sign Up</h2>
     <form action="includes/signup.inc.php" method="post">
+        <label>Buyer / Seller</label>
+        <select name="usertype">
+            <option value="Buyer">Buyer</option>
+            <option value="Seller">Seller</option>
+        </select>
+        <label>Full Name</label>
         <input type="text" name="name" placeholder="Full Name...">
+        <label>Email</label>
         <input type="text" name="email" placeholder="Email...">
+        <label>Username</label>
         <input type="text" name="uid" placeholder="Username...">
+        <label>Password</label>
         <input type="password" name="pwd" placeholder="Password...">
+        <label>Repeat password</label>
         <input type="password" name="pwdrepeat" placeholder="Repeat Password...">
         <button type="submit" name="submit">Sign Up</button>
     </form>

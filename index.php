@@ -1,29 +1,37 @@
 <?php
 include 'header.php';
+$food = new FoodDatabase();
+$food->insertJsonFileIntoDatabase();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login test</title>
-</head>
+<main>
+    <section class="homeTop">
+        <p>This web app allows the connection <br> between customers and grocery store. You <br> can buy food that is close to the expiration <br>date at a reduced price. And pick it up <br>at you local supermarket</p>
+    </section>
 
-<body>
-    <p>this is the index page</p>
+    <form id="searchForm" class="searchForm" action="includes/updateSearch.inc.php" method="GET">
+        <input type="submit" value="" class="searchFormBtn">
+        <i class="fas fa-search"></i>
+        <input class="searchFormInput" type="search" name="searchInput">
+        <input type="hidden" name="action" value="search">
+    </form>
+    <section class="foodCardContainer">
+        <?php
+        if (isset($_SESSION['foodObjects'])) {
+            $foodObjects = $_SESSION['foodObjects'];
 
-    <?php
-    if (isset($_SESSION["useruid"])) {
-        echo '<p>Hello there ' . $_SESSION["useruid"] . ' </p>';
-    }
-    ?>
+            // echo "Total results " . count($foodObjects);
 
-</body>
+            $sliceArr = array_slice($foodObjects, 0, 6);
 
-</html>
+            for ($i = 0; $i < count($sliceArr); $i++) {
+                echo $sliceArr[$i]->DisplayFood();
+            }
+        }
+        ?>
+    </section>
+</main>
 
 <?php
 include 'footer.php';

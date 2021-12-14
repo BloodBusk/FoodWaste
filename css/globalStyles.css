@@ -1,0 +1,28 @@
+:root {
+    --lightGreen: #8DF83F;
+    --darkGreen: #65B27A;
+    --lightBlack: #282828;
+    --fontContrail: contrailOne;
+    --darkDarkGreen: #326f42;
+}
+
+.lightGreen {
+    color: var(--lightGreen);
+}
+
+.SemiBold{
+    font-weight: 600;
+}
+
+.right{
+    text-align: right;
+  }
+
+.red{
+    color: rgba(255, 0, 0, 0.5);
+}
+
+@font-face {
+    font-family: contailOne;
+    src: url(ContrailOne-Regular.tff);
+  }
