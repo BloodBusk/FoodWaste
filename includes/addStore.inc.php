@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// checks if form is set submit, takes data from form and adds to createStore function
 if(isset($_POST["submit"])){
     
     $storeName = $_POST["storeName"];

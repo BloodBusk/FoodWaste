@@ -1,5 +1,6 @@
 <?php
 
+// error functions that returns true or false for the error handlers
 function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat)
 {
     $result = true;
@@ -71,26 +72,33 @@ function uidExists($conn, $username, $email)
 
 function createUser($conn, $name, $email, $username, $pwd, $type)
 {
+    //sql query to add profile picture to user
     $sql2 = "INSERT INTO profileimg (userid, statusBool) VALUES ('$username', 1)";
     mysqli_query($conn, $sql2);
 
+    // create user
     $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd, usersType) VALUES (?, ?, ?, ?, ?);";
     //prepared statement to prevent users from writing code in text fields
     $stmt = mysqli_stmt_init($conn);
+    // prepare sql statement with no more than 1 statement
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../signup.php?error=stmtfailed");
         exit();
     }
 
+    // hashed password
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
+    //bind parameter to sql statement
     mysqli_stmt_bind_param($stmt, "sssss", $name, $email, $username, $hashedPwd, $type);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+    // redirect to login.php
     header("location: ../login.php?error=none");
     exit();
 }
 
+// error function returns true or false
 function emptyInputLogin($username, $pwd)
 {
     $result = true;
@@ -102,6 +110,7 @@ function emptyInputLogin($username, $pwd)
     return $result;
 }
 
+// logs user in checks mysql connection username and password
 function loginUser($conn, $username, $pwd)
 {
     $uidExists = uidExists($conn, $username, $username);
@@ -126,6 +135,7 @@ function loginUser($conn, $username, $pwd)
     }
 }
 
+// create store
 function createStore($conn, $storeName, $storeCVR, $StoreAddress, $userId)
 {
     $sql = "INSERT INTO seller (storeName, storeCVR, storeAddress, userId) VALUES (?, ?, ?, ?)";
@@ -145,6 +155,7 @@ function createStore($conn, $storeName, $storeCVR, $StoreAddress, $userId)
     exit();
 }
 
+// create food
 function createFood($conn, $foodName, $foodPrice, $foodAmount, $userId)
 {
     $sql = "INSERT INTO food (foodName, foodPrice, foodAmount, sellerId) VALUES (?, ?, ?, ?)";

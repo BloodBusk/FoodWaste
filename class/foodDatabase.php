@@ -4,13 +4,14 @@ require "food.php";
 
 class FoodDatabase
 {
-    private $server = "localhost";
-    private $username = "root";
+    private $server = "thomasbusk.eu.mysql"; //localhost - thomasbusk.eu.mysql
+    private $username = "logintest"; //root - logintest
     private $password = "thbthb12";
     private $database = "logintest";
 
     private $mySQL;
 
+    // creates a new link to database everytime class object is instantiated
     function __construct()
     {
         $this->mySQL = new mysqli($this->server, $this->username, $this->password, $this->database);
@@ -28,7 +29,7 @@ class FoodDatabase
         }
     }
 
-
+    // search product by name, but results from sql query into array allResults and return array
     public function SearchByName($searchInput)
     {
         $allResults = [];
@@ -43,6 +44,7 @@ class FoodDatabase
         return $allResults;
     }
 
+    // fetch food object where id = parameters id from database
     public function GetFoodById($foodId)
     {
         $sql = "SELECT * FROM product WHERE id = '$foodId' LIMIT 1";

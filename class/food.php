@@ -8,6 +8,7 @@ class Food
     private $storeName;
 
 
+    // display food object as html string
     public function DisplayFood()
     {
         $string = "<div class='foodCard'>";

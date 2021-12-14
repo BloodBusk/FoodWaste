@@ -4,6 +4,7 @@
     --lightBlack: #282828;
     --fontContrail: contrailOne;
     --darkDarkGreen: #326f42;
+    --logoFont: rockSalt;
 }
 
 .lightGreen {
@@ -24,5 +25,10 @@
 
 @font-face {
     font-family: contailOne;
-    src: url(ContrailOne-Regular.tff);
+    src: url(../font/ContrailOne-Regular.ttf);
   }
+
+@font-face{
+    font-family: rockSalt;
+    src: url(../font/RockSalt-Regular.ttf);
+}

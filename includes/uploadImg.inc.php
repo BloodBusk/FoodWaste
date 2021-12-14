@@ -15,9 +15,12 @@ if(isset($_POST["submit"])){
     $fileType = $file["type"];
     $uploadDir = "../img/uploads/";
 
+    // explode seperates the file name string at "."
     $fileExt = explode(".", $fileName);
+    // makes string lower case
     $fileActualExt = strtolower(end($fileExt));
     
+    // array to store allowed file types
     $allowed = ["jpg", "jpeg", "png"];
 
     if(in_array($fileActualExt, $allowed)){

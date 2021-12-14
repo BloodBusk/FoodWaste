@@ -1,5 +1,6 @@
 <?php
 
+// checks if form is set submit, takes data from form and adds to loginUser function
 if (isset($_POST["submit"])) {
 
     $username = $_POST["uid"];

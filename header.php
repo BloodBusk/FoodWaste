@@ -1,6 +1,7 @@
 <?php
 require_once "includes/dbh.inc.php";
 require_once "class/foodDatabase.php";
+// session starts in header
 session_start();
 ?>
 
@@ -11,7 +12,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reduce Food Waste</title>
+    <title>Bifrost</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -19,8 +20,9 @@ session_start();
 <body>
     <header>
         <article class="headerTop">
-            <h1 class="logo"><a href="index.php">Reduce Food Waste</a></h1>
+            <h1 class="logo"><a href="index.php">Bifrost</a></h1>
             <div class="profileIcons">
+                <!-- checks whether or not u are logged in and displays content accordingly -->
                 <?php
                 if (isset($_SESSION["useruid"])) {
                     $ses = $_SESSION['useruid'];
@@ -56,7 +58,6 @@ session_start();
                 <div class="hamburgerMenu displayMenu" id="toggleMenu">
                     <i class="fas fa-times" id="closeMenu"></i>
                     <a href="index.php">Home</a>
-                    <a href="">Search</a>
                     <a href="">Contact</a>
                     <?php
                     if (isset($_SESSION["useruid"])) {
